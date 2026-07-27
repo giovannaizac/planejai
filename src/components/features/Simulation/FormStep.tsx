@@ -3,6 +3,7 @@ import { type SyntheticEvent, useState } from 'react'
 
 import { Button } from '@/components/shared/Button'
 import { Input, type InputProps } from '@/components/shared/Input'
+import { Select, type SelectOption } from '@/components/shared/Select'
 import { formatCurrencyMask } from '@/utils/currency'
 
 export interface FormStepProps {
@@ -10,7 +11,8 @@ export interface FormStepProps {
 	icon: LucideIcon
 	title: string
 	question: string
-	inputProps: InputProps
+	inputProps?: InputProps
+	options?: SelectOption[]
 	submitButtonProps?: {
 		label: string
 		emojiIcon?: string
@@ -28,6 +30,7 @@ export function FormStep({
 	title,
 	question,
 	inputProps,
+	options,
 	submitButtonProps,
 	hideBackButton,
 	onBack,
@@ -54,15 +57,23 @@ export function FormStep({
 				{question}
 			</h3>
 			<form onSubmit={handleSubmit} className="flex flex-col gap-4">
-				<Input
-					{...inputProps}
-					value={inputValue}
-					onChange={(e) =>
-						setInputValue(
-							inputProps.prefix === 'R$' ? formatCurrencyMask(e.target.value) : e.target.value,
-						)
-					}
-				/>
+				{options ? (
+					<Select
+						options={options}
+						value={inputValue}
+						onChange={(e) => setInputValue(e.target.value)}
+					/>
+				) : (
+					<Input
+						{...inputProps}
+						value={inputValue}
+						onChange={(e) =>
+							setInputValue(
+								inputProps?.prefix === 'R$' ? formatCurrencyMask(e.target.value) : e.target.value,
+							)
+						}
+					/>
+				)}
 				<div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
 					{!hideBackButton && (
 						<Button

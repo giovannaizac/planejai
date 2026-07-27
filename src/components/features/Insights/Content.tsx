@@ -79,10 +79,19 @@ export function Content({ insight }: ContentProps) {
 				<OrderedList items={insight.extraIncome.items} />
 			</section>
 
-			<section>
-				<SectionTitle>🏦 Sugestões de Investimento</SectionTitle>
-				<OrderedList items={insight.investment.items} />
-			</section>
+			{insight.investment && (
+				<section>
+					<SectionTitle>🏦 Sugestões de Investimento</SectionTitle>
+					<OrderedList items={insight.investment.items} />
+				</section>
+			)}
+
+			{insight.investmentTeaser && (
+				<section>
+					<SectionTitle>✨ Quer saber mais?</SectionTitle>
+					<Paragraph>{insight.investmentTeaser.content}</Paragraph>
+				</section>
+			)}
 
 			<section>
 				<SectionTitle>🚀 Mensagem Final</SectionTitle>

@@ -34,7 +34,8 @@ export interface InsightData {
 	diagnosis: { content: string }
 	suggestions: { items: string[] }
 	extraIncome: { items: string[] }
-	investment: { items: string[] }
+	investment?: { items: string[] }
+	investmentTeaser?: { content: string }
 	motivation: { content: string }
 }
 

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { AIInsightsCard } from '@/components/features/SimulationsResults/AIInsightCardProps'
 import { Card } from '@/components/features/SimulationsResults/Card'
+import { InvestmentAcceleration } from '@/components/features/SimulationsResults/InvestmentAcceleration'
 import { PageHero } from '@/components/shared/PageHero'
 import { useSimulationStorage } from '@/hooks/useSimulationStorage'
 import { calcMonthlySavings } from '@/utils/simulation'
@@ -43,7 +44,15 @@ export function SimulationResultsPage() {
 			</div>
 			<div className="grid gap-6 lg:grid-cols-3">
 				<AIInsightsCard simulationId={data.id} />
+
 				<div className="order-1 flex flex-col gap-6 lg:order-2">
+					{data.investmentInterest === 'yes' && (
+						<InvestmentAcceleration
+							monthlySavings={monthlySavings}
+							goalAmount={data.goalAmount}
+							deadlineMonths={data.goalDeadline}
+						/>
+					)}
 					<Card
 						icon={Wallet}
 						label="Renda mensal"

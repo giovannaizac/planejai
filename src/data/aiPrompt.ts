@@ -3,8 +3,7 @@ import type { InsightData } from '@/Service/aiService'
 import { parseCurrency } from '@/utils/currency'
 import { calcMonthlySavings } from '@/utils/simulation'
 
-const RESPONSE_SCHEMA = `{
-  "feasibility": {
+const BASE_SCHEMA_FIELDS = `  "feasibility": {
     "status": "viable" | "needs_adjustment" | "unfeasible",
     "content": "<Análise objetiva sobre se a meta é atingível no prazo com o valor disponível. Mencione os números relevantes.>"
   },
@@ -16,20 +15,48 @@ const RESPONSE_SCHEMA = `{
   },
   "extraIncome": {
     "items": ["<Ideia prática para gerar renda extra compatível com a realidade brasileira>"]
-  },
+  }`
+
+const INVESTMENT_FIELD = `,
   "investment": {
     "items": ["<Sugestão de investimento acessível para o perfil apresentado, com foco em atingir a meta>"]
-  },
+  }`
+
+const INVESTMENT_TEASER_FIELD = `,
+  "investmentTeaser": {
+    "content": "<Uma frase curta e convidativa (não uma sugestão em si) dizendo que existem formas do dinheiro render enquanto a meta é atingida, e que o usuário pode perguntar sobre isso no chat quando quiser>"
+  }`
+
+const MOTIVATION_FIELD = `,
   "motivation": {
     "content": "<Mensagem final motivacional e personalizada, citando a meta pelo nome.>"
   }
 }`
 
+function buildResponseSchema(investmentInterest: string) {
+	let schema = `{\n${BASE_SCHEMA_FIELDS}`
+
+	if (investmentInterest === 'yes') {
+		schema += INVESTMENT_FIELD
+	} else if (investmentInterest === 'later') {
+		schema += INVESTMENT_TEASER_FIELD
+	}
+
+	schema += MOTIVATION_FIELD
+	return schema
+}
+
 export function buildAIPrompt(simulation: SimulationRecord) {
-	const { income, expenses, debts, goalName, goalAmount, goalDeadline } = simulation
+	const { income, expenses, debts, goalName, goalAmount, goalDeadline, investmentInterest } =
+		simulation
 
 	const monthlySavings = calcMonthlySavings(simulation)
 	const monthlySavingsNeeded = parseCurrency(goalAmount) / parseInt(goalDeadline)
+
+	const investmentRule =
+		investmentInterest === 'no'
+			? '\n- O usuário não tem interesse em investimentos: NÃO mencione investimentos, aplicações financeiras ou rendimento em nenhuma seção, nem na motivação.'
+			: ''
 
 	return `Você é um educador financeiro especializado em finanças pessoais. Analise os dados abaixo e gere um diagnóstico financeiro personalizado com linguagem clara, didática e encorajadora, voltado para pessoas sem conhecimento financeiro. O diagnóstico será exibido diretamente ao usuário no app, fale sempre em segunda pessoa ("você tem...", "sua meta...").
 
@@ -46,14 +73,14 @@ Dados da simulação:
 
 Retorne APENAS um JSON válido, sem texto adicional, sem blocos de código, neste formato exato:
 
-${RESPONSE_SCHEMA}
+${buildResponseSchema(investmentInterest)}
 
 Regras:
 - Todos os textos em português do Brasil
 - Máximo de 4 itens por lista
 - Seja específico ao citar valores calculados
 - Não repita informações entre seções
-- Nunca use markdown dentro dos valores do JSON
+- Nunca use markdown dentro dos valores do JSON${investmentRule}
 - Para o campo "feasibility.status", use os seguintes critérios:
   - "viable": saldo após reserva para a meta é maior ou igual a 0
   - "needs_adjustment": saldo negativo de até 20% do valor da economia mensal necessária

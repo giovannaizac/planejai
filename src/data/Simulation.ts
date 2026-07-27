@@ -1,4 +1,12 @@
-import { CalendarClock, CreditCard, Goal, Landmark, PiggyBank, Wallet } from 'lucide-react'
+import {
+	CalendarClock,
+	CreditCard,
+	Goal,
+	Landmark,
+	PiggyBank,
+	TrendingUp,
+	Wallet,
+} from 'lucide-react'
 
 import type { InsightData } from '@/Service/aiService'
 
@@ -37,6 +45,17 @@ export const simulationFormSteps = [
 			prefix: 'R$',
 			maxLength: 12,
 		},
+	},
+	{
+		id: 'investmentInterest',
+		icon: TrendingUp,
+		title: 'Interesse em investimentos',
+		question: 'Você tem interesse em saber como seu dinheiro pode render enquanto economiza?',
+		options: [
+			{ value: 'yes', label: 'Sim, quero saber!' },
+			{ value: 'later', label: 'Ainda não, mas pode me explicar depois' },
+			{ value: 'no', label: 'Não tenho interesse' },
+		],
 	},
 	{
 		id: 'goalName',
