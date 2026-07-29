@@ -17,8 +17,8 @@ Projeto desenvolvido como desafio final do bootcamp **"Desenvolvendo Seu Educado
 **Formulário em etapas** — com tema claro e escuro:
 
 <p>
-  <img src="./docs/screenshots/formulario-etapa-1-claro.png" width="48%" alt="Formulário, etapa 1, tema claro" />
-  <img src="./docs/screenshots/formulario-etapa-1-escuro.png" width="48%" alt="Formulário, etapa 1, tema escuro" />
+  <img src="./docs/screenshots/tela-inicial-fundo-claro.png" width="48%" alt="Formulário, etapa 1, tema claro" />
+  <img src="./docs/screenshots/tela-inicial-fundo-escuro.png" width="48%" alt="Formulário, etapa 1, tema escuro" />
 </p>
 
 Etapa com pergunta de múltipla escolha (interesse em investimentos):
@@ -27,11 +27,12 @@ Etapa com pergunta de múltipla escolha (interesse em investimentos):
 
 **Resultado da simulação**, com o diagnóstico gerado pela IA e o card de projeção com a taxa CDI real:
 
-![Resultado da simulação com card de rendimento CDI](./docs/screenshots/resultado-simulacao-cdi.png)
+![Resultado da simulação com card de rendimento CDI](./docs/screenshots/resultado-simulação-escuro.png)
 
 **Histórico de simulações**:
 
-![Histórico de simulações](./docs/screenshots/historico-simulacoes.png)
+![Histórico de simulações](./docs/screenshots/historico-simulações-escuro.png)
+![Histórico de simulações mobile](./docs/screenshots/historico-simulações-escuro-mobile.png)
 
 ## 🚀 Tecnologias usadas
 
@@ -85,7 +86,9 @@ A aplicação sobe em `http://localhost:5173`.
 
 ## 📚 O que aprendi
 
-*(Esse é o espaço mais pessoal do README — recomendo escrever em 3-4 frases suas, com base no que realmente foi novo ou desafiador pra você. Alguns pontos que você mencionou ao longo do desenvolvimento e que podem servir de ponto de partida: montar um prompt estruturado que retorna JSON confiável da IA, tratar chamadas duplicadas e estados assíncronos com hooks customizados, e integrar uma API pública de dados financeiros (BCB) pela primeira vez.)*
+## 📚 O que aprendi
+
+O maior desafio técnico foi montar um prompt estruturado que retornasse um JSON confiável a partir da API do Gemini, tratando os casos em que a resposta vinha malformada. Também foi a primeira vez que integrei uma API pública de dados financeiros (BCB) e lidei com estados assíncronos (loading, erro, sucesso) usando hooks customizados em vez de bibliotecas prontas. Esse processo me ajudou a entender melhor como estruturar prompts para IA generativa de forma previsível — algo que quero aprofundar nos próximos projetos.
 
 ## 📁 Estrutura do projeto
 
