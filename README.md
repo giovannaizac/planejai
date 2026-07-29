@@ -27,7 +27,7 @@ Etapa com pergunta de múltipla escolha (interesse em investimentos):
 
 **Resultado da simulação**, com o diagnóstico gerado pela IA e o card de projeção com a taxa CDI real:
 
-![Resultado da simulação com card de rendimento CDI](./docs/screenshots/resultado-simulacao-cdi.png.png)
+![Resultado da simulação com card de rendimento CDI](./docs/screenshots/resultado-simulacao-cdi.png)
 
 **Histórico de simulações**:
 
