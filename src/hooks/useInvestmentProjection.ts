@@ -22,7 +22,6 @@ export function useInvestmentProjection(
 
 			try {
 				const monthlyRate = await fetchCDIMonthlyRate()
-				console.log('Taxa mensal CDI:', monthlyRate)
 				const result = calculateInvestmentAcceleration(
 					monthlySavings,
 					parseCurrency(goalAmount),

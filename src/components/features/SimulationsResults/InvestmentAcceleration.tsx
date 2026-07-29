@@ -2,6 +2,13 @@ import { TrendingUp } from 'lucide-react'
 
 import { useInvestmentProjection } from '@/hooks/useInvestmentProjection'
 
+function formatCurrency(value: number) {
+	return value.toLocaleString('pt-BR', {
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2,
+	})
+}
+
 interface InvestmentAccelerationProps {
 	monthlySavings: number
 	goalAmount: string
@@ -52,6 +59,13 @@ export function InvestmentAcceleration({
 					<strong>{projection.monthsWithInterest} meses</strong>, dentro do prazo planejado.
 				</p>
 			)}
+			<p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+				Ao final desse período, você teria{' '}
+				<strong className="text-foreground">
+					R$ {formatCurrency(projection.finalAmountWithInterest)}
+				</strong>{' '}
+				guardados — considerando os rendimentos junto com os aportes mensais.
+			</p>
 		</div>
 	)
 }
