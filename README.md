@@ -17,8 +17,8 @@ Projeto desenvolvido como desafio final do bootcamp **"Desenvolvendo Seu Educado
 **Formulário em etapas** — com tema claro e escuro:
 
 <p>
-  <img src="./docs/screenshots/tela-inicial-fundo-claro.png" width="48%" alt="Formulário, etapa 1, tema claro" />
-  <img src="./docs/screenshots/tela-inicial-fundo-escuro.png" width="48%" alt="Formulário, etapa 1, tema escuro" />
+  <img src="./docs/screenshots/formulario-etapa-1-claro.png" width="48%" alt="Formulário, etapa 1, tema claro" />
+  <img src="./docs/screenshots/formulario-etapa-1-escuro.png" width="48%" alt="Formulário, etapa 1, tema escuro" />
 </p>
 
 Etapa com pergunta de múltipla escolha (interesse em investimentos):
@@ -27,12 +27,12 @@ Etapa com pergunta de múltipla escolha (interesse em investimentos):
 
 **Resultado da simulação**, com o diagnóstico gerado pela IA e o card de projeção com a taxa CDI real:
 
-![Resultado da simulação com card de rendimento CDI](./docs/screenshots/resultado-simulação-escuro.png)
+![Resultado da simulação com card de rendimento CDI](./docs/screenshots/resultado-simulacao-cdi.png.png)
 
 **Histórico de simulações**:
 
-![Histórico de simulações](./docs/screenshots/historico-simulações-escuro.png)
-![Histórico de simulações mobile](./docs/screenshots/historico-simulações-escuro-mobile.png)
+![Histórico de simulações](./docs/screenshots/historico-simulacoes.png)
+![Histórico de simulações mobile](./docs/screenshots/historico-simulacoes-mobile.png)
 
 ## 🚀 Tecnologias usadas
 
