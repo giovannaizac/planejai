@@ -86,9 +86,7 @@ A aplicação sobe em `http://localhost:5173`.
 
 ## 📚 O que aprendi
 
-## 📚 O que aprendi
-
-O maior desafio técnico foi montar um prompt estruturado que retornasse um JSON confiável a partir da API do Gemini, tratando os casos em que a resposta vinha malformada. Também foi a primeira vez que integrei uma API pública de dados financeiros (BCB) e lidei com estados assíncronos (loading, erro, sucesso) usando hooks customizados em vez de bibliotecas prontas. Esse processo me ajudou a entender melhor como estruturar prompts para IA generativa de forma previsível — algo que quero aprofundar nos próximos projetos.
+Esse foi meu primeiro contato com React, com integração de API e com IA generativa — antes do bootcamp eu nunca tinha trabalhado com nenhum dos três. Nas primeiras semanas tive bastante dificuldade: conceitos como estado, hooks e requisições assíncronas pareciam abstratos demais, e eu não conseguia visualizar como as peças se encaixavam. O ponto de virada foi quando comecei a implementar o fluxo de ponta a ponta — formulário, prompt pra IA, resposta em JSON, exibição do resultado — e, ao ver os dados se movendo entre essas camadas, tudo começou a fazer sentido de verdade. Terminar esse projeto entendendo React e consumo de API do zero foi a maior prova de que consigo aprender tecnologias novas, mesmo começando sem nenhuma base.
 
 ## 📁 Estrutura do projeto
 
