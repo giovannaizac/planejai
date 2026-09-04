@@ -4,6 +4,15 @@ Educador Financeiro Inteligente construído com **React**, **TypeScript** e **IA
 
 Projeto desenvolvido como desafio final do bootcamp **"Desenvolvendo Seu Educador Financeiro Inteligente Com React E IA Generativa"** (DIO), a partir do [repositório base](https://github.com/digitalinnovationone/planejai).
 
+---
+
+## 🔗 Links de Acesso
+
+- 🚀 **Aplicação Online (GitHub Pages)**: [https://giovannaizac.github.io/planejai/](https://giovannaizac.github.io/planejai/)
+- 📦 **Repositório do Projeto**: [giovannaizac/planejai](https://github.com/giovannaizac/planejai)
+
+---
+
 ## ✨ O que o projeto faz
 
 1. A pessoa usuária responde um formulário em 7 etapas: renda mensal, custos fixos, dívidas, interesse em investimentos, nome da meta, custo da meta e prazo desejado.
