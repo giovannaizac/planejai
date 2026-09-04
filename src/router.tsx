@@ -23,4 +23,8 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
-])
+]
+										  {
+    basename: '/planejai',
+  }
+										 )
